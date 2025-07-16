@@ -15,7 +15,8 @@ RUN apt-get update && \
     mkdir -p /root/.vscode-server/bin && \
     tar -xf ./vscode-server-linux-x64.tar.gz -C /root/.vscode-server/bin && \
     mv /root/.vscode-server/bin/vscode-server-linux-x64 /root/.vscode-server/bin/$VSCODE_COMMIT && \
-    code-server --install-extension ms-python.python@25.10.0 && \
+    export PATH=/root/.vscode-server/bin/$VSCODE_COMMIT/bin:$PATH && \
+    code-server --install-extension ms-python.python@2025.10.0 && \
     code-server --install-extension kevinrose.vsc-python-indent@1.21.0 && \
     code-server --install-extension ms-python.pylint@2025.2.0 && \
     code-server --install-extension ms-toolsai.jupyter@2025.6.0 && \
