@@ -18,8 +18,8 @@ RUN apt-get update && \
     conda init && \
     conda install -n base -y "python>=3.12,<3.13" pip && \
     conda activate base && \
-    pip install --no-cache-dir -r requirements-pytorch.txt && \
-    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir -r requirements-pytorch.txt --index-url --index-url https://download.pytorch.org/whl/cu124 && \
+    pip install --no-cache-dir -r requirements.txt -c requirements-pytorch.txt && \
     pip install "https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.6cxx11abiTRUE-cp312-cp312-linux_x86_64.whl"
 # Vscode server和extensions手动安装更方便
 # RUN wget https://update.code.visualstudio.com/latest/server-linux-x64/stable
